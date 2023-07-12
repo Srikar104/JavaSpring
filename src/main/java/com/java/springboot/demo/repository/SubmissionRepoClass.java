@@ -42,8 +42,14 @@ public class SubmissionRepoClass implements SubmissionRepository{
     }
 
     @Override
-    public SubmissionDTO deleteSubmission(String id) {
-        return submissions.remove(id);
+    public boolean deleteSubmission(String id) {
+        submissions.entrySet().stream().filter(es ->{
+            if (es.getValue().getConsultantName().equals(id)){
+                return true;
+            }
+            return false;
+        }).map(k -> k.getValue()).toList().forEach(submissions::remove);
+        return true;
     }
 
 }

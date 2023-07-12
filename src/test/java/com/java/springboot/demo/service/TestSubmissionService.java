@@ -22,42 +22,42 @@ public class TestSubmissionService {
 
     @Test
     public void test_getSubmission(){
-        SubmissionDTO mockSubmission = getSubmission("25-1-2023","Ravi","java","Akshay","Srihari");
+        SubmissionDTO mockSubmission = getSubmission("25-1-2023","Srikar","java","Mani","Krishna");
 
         when(sRepo.getSubmission("id-1")).thenReturn(mockSubmission);
 
         SubmissionDTO result = sServ.getSubmission("id-1");
 
         Assertions.assertNotNull(result);
-        Assertions.assertEquals("Ravi",result.getSalesPersonName());
+        Assertions.assertEquals("Srikar",result.getSalesPersonName());
     }
 
     @Test
     public void test_addSubmission(){
-        SubmissionDTO mockSubmission = getSubmission("25-1-2023","Ravi","java","Akshay","Srihari");
+        SubmissionDTO mockSubmission = getSubmission("25-1-2023","Srikar","java","Mani","Krishna");
 
         when(sRepo.addSubmission(mockSubmission)).thenReturn(mockSubmission);
 
         SubmissionDTO result = sServ.addSubmission(mockSubmission);
 
         Assertions.assertNotNull(result);
-        Assertions.assertEquals("Ravi",result.getSalesPersonName());
+        Assertions.assertEquals("Srikar",result.getSalesPersonName());
     }
 
     @Test
     public void test_delSubmission(){
-        SubmissionDTO mockSubmission = getSubmission("25-1-2023","Ravi","java","Akshay","Srihari");
+        SubmissionDTO mockSubmission = getSubmission("25-1-2023","Srikar","java","Mani","Krishna");
 
-        when(sRepo.deleteSubmission("Ravi")).thenReturn(true);
+        when(sRepo.deleteSubmission("Srikar")).thenReturn(true);
 
-        boolean result = sServ.deleteSubmission("Ravi");
+        boolean result = sServ.deleteSubmission("Srikar");
 
         Assertions.assertTrue(result);
     }
 
     @Test
     public void test_updateSubmission(){
-        SubmissionDTO mockSubmission = getSubmission("25-1-2023","Ravi","java","Akshay","Srihari");
+        SubmissionDTO mockSubmission = getSubmission("25-1-2023","Srikar","java","Mani","Krishna");
 
         when(sRepo.updateSubmission(mockSubmission)).thenReturn(mockSubmission);
 
